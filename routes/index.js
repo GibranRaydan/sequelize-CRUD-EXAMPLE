@@ -12,5 +12,15 @@ router.post('/posts', controllers.createPost);
 //get all posts
 router.get('/posts', controllers.getAllPosts);
 
+//get one post by ID
+router.get('/posts/:postId', controllers.getPostById);
+
+//update one post by id
+router.put('/posts/:postId', controllers.updatePost);
+
+//delete one post by id
+router.delete('/posts/:postId', controllers.deletePost);
+
+
 
 module.exports = router;
