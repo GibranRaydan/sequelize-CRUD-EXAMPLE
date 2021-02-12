@@ -7,11 +7,13 @@ describe('Post API', () => {
         expect(res.statusCode).toEqual(200)
         expect(res.body).toHaveProperty('posts')
     }),
+
         it('should show a posts', async () => {
             const res = await request(app).get('/api/posts/1')
             expect(res.statusCode).toEqual(200)
             expect(res.body).toHaveProperty('post')
         })
+
     it('should create a new Post', async () => {
         const res = await request(app)
             .post('/api/posts')
@@ -25,7 +27,8 @@ describe('Post API', () => {
         expect(res.statusCode).toEqual(201)
         expect(res.body).toHaveProperty('post')
     })
-    it('should update a user', async () => {
+
+    it('should update a Post', async () => {
         const res = await request(app)
             .put('/api/posts/1')
             .send({
@@ -38,9 +41,19 @@ describe('Post API', () => {
         expect(res.statusCode).toEqual(200)
         expect(res.body).toHaveProperty('post')
     }),
-        it('should delete a user', async () => {
+
+        it('should delete a Post', async () => {
             const res = await request(app)
                 .del('/api/posts/1')
             expect(res.statusCode).toEqual(204)
+        })
+
+        
+        it('should not find a deleted Post', async () => {
+            const res = await request(app)
+                .get('/api/posts/1')
+            expect(res.statusCode).toEqual(404)
+            expect(res.body).toEqual({'error':'Post with the specified ID does not exists'})
+
         })
 })
