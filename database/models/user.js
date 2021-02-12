@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     email: DataTypes.STRING
   }, {});
+  
   User.associate = function(models) {
     // associations can be defined here
     User.hasMany(models.Post, {

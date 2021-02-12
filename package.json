@@ -7,7 +7,8 @@
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "pretest": "cross-env NODE_ENV=test npm run db:reset",
-    "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create"
+    "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
+    "dev": "nodemon src"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
