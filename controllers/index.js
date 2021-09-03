@@ -1,4 +1,5 @@
 const models = require('../database/models');
+const Rectangle = require('../classes_example.js');
 
 const createPost = async (req, res) => {
     try {
@@ -92,11 +93,26 @@ const deletePost = async (req, res) => {
       return res.status(500).send(error.message);
     }
   };
+
+  const getFigureAreas = async (req,res) => {
+      try{
+        rectangle = new Rectangle(5,5);
+
+         return res.status(200).send({
+             'rectangle' : rectangle,
+             'rectangle Area' : rectangle.area
+         })
+      }
+      catch(error){
+        return res.status(500).send(error.message);
+      }
+  };
   
 module.exports = {
     createPost,
     getAllPosts,
     getPostById,
     updatePost,
-    deletePost
+    deletePost,
+    getFigureAreas
 }

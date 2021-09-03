@@ -6,16 +6,16 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING
   }, {});
 
-  Category.associate = function(models) {
+  Category.associate = function (models) {
     // associations can be defined here
     Category.hasMany(models.Post, {
       foreignKey: 'categoryId',
       as: 'category',
       onDelete: 'CASCADE',
 
-      
+
     });
-  
+
   };
   return Category;
 };

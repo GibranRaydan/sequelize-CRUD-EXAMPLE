@@ -21,6 +21,7 @@ router.put('/posts/:postId', controllers.updatePost);
 //delete one post by id
 router.delete('/posts/:postId', controllers.deletePost);
 
+router.get('/figureAreas', controllers.getFigureAreas);
 
 
 module.exports = router;
