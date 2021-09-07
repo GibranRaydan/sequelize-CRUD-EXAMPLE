@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const controllers = require('../controllers');
+const user = require('../controllers/user_controller');
 
 
 const router = Router();
@@ -22,6 +23,14 @@ router.put('/posts/:postId', controllers.updatePost);
 router.delete('/posts/:postId', controllers.deletePost);
 
 router.get('/figureAreas', controllers.getFigureAreas);
+
+
+//register
+router.post('/register', user.registerUser);
+
+//login
+router.post('/login', user.login);
+
 
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const models = require('../database/models');
 const Rectangle = require('../classes_example.js');
 
+
 const createPost = async (req, res) => {
     try {
         const post = await models.Post.create(req.body);
@@ -96,6 +97,9 @@ const deletePost = async (req, res) => {
 
   const getFigureAreas = async (req,res) => {
       try{
+    /*     const { height } = req.params.height;
+        console.log('HHHHHHHHHHHHHHHEEEEEEE   ' + height); */
+
         rectangle = new Rectangle(5,5);
 
          return res.status(200).send({
